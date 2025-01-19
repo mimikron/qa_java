@@ -22,12 +22,13 @@ public class CatTest {
 
     @Test
     public void checkGetSound() {
-        assertEquals(String.format("Звук %s, не соответствует ожидаемому", cat.getSound()), "Мяу", cat.getSound());
+        assertEquals(String.format("Звук %s, не соответствует ожидаемому \"Мяу\"", cat.getSound()), "Мяу", cat.getSound());
     }
 
     @Test
     public void checkGetFood() throws Exception {
-        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        assertEquals(String.format("Список еды %s, не соответствует ожидаемому", cat.getFood()), List.of("Животные", "Птицы", "Рыба"), cat.getFood());
+        List meat = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.eatMeat()).thenReturn(meat);
+        assertEquals(String.format("Список еды %s, не соответствует ожидаемому", cat.getFood()), meat, cat.getFood());
     }
 }

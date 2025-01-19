@@ -25,16 +25,16 @@ public class FelineTest {
 
     @Test
     public void checkGetFamily() {
-        assertEquals(String.format("Семейство %s, не соответствует ожидаемому", feline.getFamily()), "Кошачьи", feline.getFamily());
+        assertEquals(String.format("Семейство %s, не соответствует семейству \"Кошачьи\"", feline.getFamily()), "Кошачьи", feline.getFamily());
     }
 
     @Test
     public void checkGetKittens() {
-        assertEquals(String.format("Количество котят: %s, не соответствует ожидаемому", feline.getKittens()), 1, feline.getKittens());
+        assertEquals(String.format("Количество котят: %s, не соответствует 1", feline.getKittens()), 1, feline.getKittens());
     }
 
     @Test
     public void checkGetKittensWhithCount() {
-        assertEquals(String.format("Количество котят: %s, не соответствует ожидаемому", feline.getKittens(kittensCount)), kittensCount, feline.getKittens(kittensCount));
+        assertEquals(String.format("Количество котят: %s, не соответствует переданному значению %s", feline.getKittens(kittensCount), kittensCount), kittensCount, feline.getKittens(kittensCount));
     }
 }

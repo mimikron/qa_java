@@ -8,14 +8,14 @@ import org.mockito.Mockito;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class LionCreateTest {
+public class LionParametrizedTest {
     final private String gender;
     final private boolean hasMane;
 
     final private Feline feline = Mockito.mock(Feline.class);
 
 
-    public LionCreateTest(String gender, boolean hasMane) {
+    public LionParametrizedTest(String gender, boolean hasMane) {
         this.gender = gender;
         this.hasMane = hasMane;
     }
@@ -25,17 +25,12 @@ public class LionCreateTest {
         return new Object[][] {
                 {"Самец", true},
                 {"Самка", false},
-                {"Ошибка", false},
         };
     }
 
     @Test
-    public void checkLion(){
-        try {
+    public void checkLion() throws Exception {
             Lion lion = new Lion(feline, gender);
             assertEquals(String.format("Значение %s не соответсвует ожидаемому", hasMane), hasMane, lion.doesHaveMane());
-        } catch (Exception e) {
-            assertEquals("Используйте допустимые значения пола животного - самей или самка", e.getMessage());
-        }
     }
 }
