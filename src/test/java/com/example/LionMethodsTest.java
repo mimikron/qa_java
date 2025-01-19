@@ -16,7 +16,7 @@ public class LionMethodsTest {
     private Feline feline;
 
     @Test
-    public void checkLionException() {
+    public void checkLionConstructorException() {
         Exception exception = assertThrows(Exception.class, () -> new Lion(feline, "Оно"));
         assertEquals("Используйте допустимые значения пола животного - самей или самка", exception.getMessage());
     }
